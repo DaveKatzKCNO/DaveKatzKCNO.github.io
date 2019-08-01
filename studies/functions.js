@@ -66,8 +66,16 @@ funcName();
  * 
  * 6. Scope: Functions can see and modify variables in 
  * parent or global scopes. The inverse is NOT true.
- * 
- * 
+ */ 
+let dummy = 'Global';
+function inner(){
+  dummy = 'I was changed by the function!'
+  console.log(dummy)
+};
+console.log(dummy);//prints 'Global' because the function hasn't been called and so no variables have been reassigned.
+inner();//prints 'I was changed by the function', after 'inner()' has been called. the function has access to variables in the global scope and changed it according to its body of code.
+
+ /*
  * 7. Closures: Functions form closures around the data 
  * they house. If an object returned from the Function 
  * and is held in memory somewhere (referenced), that 
